@@ -31,6 +31,11 @@ SOURCES := $(shell find $(SRCDIR) -iname '*.'$(SRCEXT))
 #OBJECTS := obj/main.o obj/Dht11.o
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.$(OBJEXT)))
 
+ifeq ($(CROSS_COMPILE),arm-linux-gnueabihf-) 
+libpath = $(LIBPATH)
+else
+libpath = 
+endif
 
 all: directories $(TARGET)
 
@@ -40,7 +45,7 @@ directories:
 	@mkdir -p $(BUILDDIR)
 
 $(TARGET): $(OBJECTS)
-	$(CROSS_COMPILE)$(CC) $(LFLAGS) $(OBJECTS) -o $(TARGETDIR)/$@ $(SDL) $(LIBPATH) $(LIB)
+	$(CROSS_COMPILE)$(CC) $(LFLAGS) $(OBJECTS) -o $(TARGETDIR)/$@ $(SDL) $(libpath) $(LIB)
 
 $(BUILDDIR)/%.$(OBJEXT):$(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(dir $@)

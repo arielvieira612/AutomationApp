@@ -13,9 +13,16 @@
         },
         "tasks": [
             {
-                "taskName": "hello",
+                "taskName": "arm",
                 "args": [
                     "make all CROSS_COMPILE=arm-linux-gnueabihf- ARCH=arm"
+                ],
+                "isBuildCommand": true
+            },
+            {
+                "taskName": "X86",
+                "args": [
+                    "make all"
                 ],
                 "isBuildCommand": true
             },

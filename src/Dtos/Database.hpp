@@ -8,7 +8,7 @@
 class Database{
     private:
         sqlite3 *db;
-        const char *DbName = "teste.db";
+        const char *DbName = "test.db";
         static int callback(void *NotUsed, int argc, char **argv, char **azColName);
     public:
          DbStructures::st_ResultDatabase OpenDatabase();
