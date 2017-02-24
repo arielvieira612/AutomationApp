@@ -25,6 +25,8 @@ st_ResultDatabase Database::OpenDatabase(void){
     return result;
 }
 
+
+
 DbStructures::st_ResultDatabase Database::ExecCommand(const char* Command){
    int rc;
    char *zErrMsg = 0;

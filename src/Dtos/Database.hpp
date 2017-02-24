@@ -13,6 +13,7 @@ class Database{
     public:
          DbStructures::st_ResultDatabase OpenDatabase();
          DbStructures::st_ResultDatabase ExecCommand(const char* Command);
+         sqlite3* GetDataBase(){return this->db;}
          void CloseDatabase();
 };
 
